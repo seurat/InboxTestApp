@@ -7,9 +7,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by ranialjondi on 5/20/17.
  */
 
-public class APIClient {
+public class ApiClient {
 
-        public static final String BASE_URL = "https://s3.amazonaws.com/public.localytics/challenge/inbox.JSON";
+        public static final String BASE_URL = "https://s3.amazonaws.com/public.localytics/challenge/";
         private static Retrofit retrofit = null;
 
         public static Retrofit getClient() {

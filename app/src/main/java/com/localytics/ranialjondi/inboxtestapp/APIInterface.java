@@ -9,7 +9,7 @@ import retrofit2.http.GET;
  * Created by ranialjondi on 5/20/17.
  */
 
-public interface APIInterface {
-    @GET("inboxes.JSON")
-    Call<List<Email>> getInbox();
+public interface ApiInterface {
+    @GET("inbox.JSON")
+    Call<Inboxes> getInboxOther();
 }

@@ -1,7 +1,9 @@
 package com.localytics.ranialjondi.inboxtestapp;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -22,7 +24,7 @@ public class InboxEntryView
 
     private static final String TAG = "InboxEntryView";
     private ImageLoader mImageLoader;
-    ImageView thumbnail = (ImageView) ((MainActivity) getContext()).findViewById(R.id.thumbnail);
+    ImageView thumbnail = (ImageView) findViewById(R.id.thumbnail);
 
     DisplayImageOptions displayOptions = new DisplayImageOptions.Builder()
             .showImageOnLoading(R.drawable.icon_portrait_lg)
@@ -40,14 +42,9 @@ public class InboxEntryView
 
     protected Email email;
 
-    //private GestureDetectorCompat gestureDetector;
-    //        boolean hasDisallowed = false;
-
-
     public InboxEntryView(ViewGroup parent) {
         this(parent.getContext(), null);
-        mImageLoader = ImageLoader.getInstance();
-        mImageLoader.init(config);
+
     }
 
     public InboxEntryView(Context context, AttributeSet attrs) {
@@ -72,16 +69,11 @@ public class InboxEntryView
 
     public void setData(Email email) {
         this.email = email;
-        setName();
+        mImageLoader = ImageLoader.getInstance();
+        mImageLoader.init(config);
         setTitle();
         setSummary();
         setThumbnail();
-
-    }
-
-    private void setName() {
-        TextView nameText = (TextView) findViewById(R.id.rule_name);
-        nameText.setText(email.getRuleName());
 
     }
 
@@ -98,8 +90,8 @@ public class InboxEntryView
     }
 
     private void setThumbnail() {
-        thumbnail = (ImageView) ((MainActivity) getContext()).findViewById(R.id.thumbnail);
-        mImageLoader.displayImage(email.getThumbnailURI(), thumbnail);
+        thumbnail = (ImageView) findViewById(R.id.thumbnail);
+        mImageLoader.displayImage(email.getThumbnailLocation(), thumbnail);
     }
 
 

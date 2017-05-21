@@ -28,8 +28,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        downloadTask = new DownloadTask();
-        downloadTask.execute();
+        //downloadTask = new DownloadTask();
+        //downloadTask.execute();
+
+        getFragmentManager()
+                .beginTransaction()
+                .replace(R.id.inbox_container,
+                        InboxFragment.newInstance(),
+                        InboxFragment.FRAGMENT_TAG)
+                .addToBackStack(InboxFragment.FRAGMENT_TAG)
+                .commit();
 
     }
 
