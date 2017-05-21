@@ -11,13 +11,13 @@ import java.util.List;
 public class Inboxes {
 
     @SerializedName("inboxes")
-    private List<Email> emails;
+    private List<Inbox> emails;
 
-    public List<Email> getEmails() {
+    public List<Inbox> getEmails() {
         return emails;
     }
 
-    public void setEmails(List<Email> emails) {
+    public void setEmails(List<Inbox> emails) {
         this.emails = emails;
     }
 

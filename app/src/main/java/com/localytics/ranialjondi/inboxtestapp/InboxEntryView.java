@@ -1,9 +1,7 @@
 package com.localytics.ranialjondi.inboxtestapp;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -40,7 +38,7 @@ public class InboxEntryView
             .defaultDisplayImageOptions(displayOptions)
             .build();
 
-    protected Email email;
+    protected Inbox email;
 
     public InboxEntryView(ViewGroup parent) {
         this(parent.getContext(), null);
@@ -67,7 +65,7 @@ public class InboxEntryView
     }
 
 
-    public void setData(Email email) {
+    public void setData(Inbox email) {
         this.email = email;
         mImageLoader = ImageLoader.getInstance();
         mImageLoader.init(config);
